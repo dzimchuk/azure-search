@@ -1,0 +1,7 @@
+{ 
+    "name" : "product-and-description",
+    "description" : "A data source for ProductAndDescription view from AdventureWorks sample database",
+    "type" : "azuresql",
+    "credentials" : { "connectionString" : "" },
+    "container" : { "name" : "[Production].[vProductAndDescription]" }
+}

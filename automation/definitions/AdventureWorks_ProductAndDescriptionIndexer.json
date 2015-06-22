@@ -1,0 +1,5 @@
+{ 
+    "name" : "product-and-description",
+    "dataSourceName" : "product-and-description",
+    "targetIndexName" : "product-and-description"
+}
