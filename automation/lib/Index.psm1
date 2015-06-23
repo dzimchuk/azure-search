@@ -14,7 +14,7 @@ function Create-Index
 {
     param ($indexDefinition)
 
-    $name = $entityDefinition.name
+    $name = $indexDefinition.name
     Write-Host "Creating index $name..."
 
     return Create-Entity $baseUri $indexDefinition

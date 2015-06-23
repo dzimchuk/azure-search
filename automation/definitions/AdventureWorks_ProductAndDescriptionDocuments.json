@@ -1,0 +1,20 @@
+{
+  "value": [
+    {
+      "@search.action": "mergeOrUpload",
+      "ProductID": "1",
+      "Name": "Mountain-400 Silver",
+      "ProductModel": "Mountain-400",
+      "CultureID": "en", 
+      "Description": "This bike delivers a high-level of performance on a budget. It is responsive and maneuverable, and offers peace-of-mind when you decide to go off-road."
+    },
+    {
+      "@search.action": "mergeOrUpload",
+      "ProductID": "2",
+      "Name": "Mountain-500 Black, 42se",
+      "ProductModel": "Mountain-500",
+      "CultureID": "en",
+      "Description": "Suitable for any type of riding, on or off-road. Fits any budget. Smooth-shifting with a comfortable ride."
+    }
+  ]
+}

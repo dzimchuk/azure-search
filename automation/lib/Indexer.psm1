@@ -14,7 +14,7 @@ function Create-Indexer
 {
     param ($indexerDefinition)
 
-    $name = $entityDefinition.name
+    $name = $indexerDefinition.name
     Write-Host "Creating indexer $name..."
 
     return Create-Entity $baseUri $indexerDefinition

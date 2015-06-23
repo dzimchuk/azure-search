@@ -13,7 +13,7 @@ function Create-DataSource
 {
     param ($dataSourceDefinition)
 
-    $name = $entityDefinition.name
+    $name = $dataSourceDefinition.name
     Write-Host "Creating data source $name..."
 
     return Create-Entity $baseUri $dataSourceDefinition
