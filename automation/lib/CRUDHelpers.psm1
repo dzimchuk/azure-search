@@ -18,22 +18,13 @@ function Create-Entity
 {
     param ($baseUri, $entityDefinition)
 
-    $entityName = $entityDefinition.name
-    Write-Host "Creating entity $entityName..."
-
     return Post $baseUri $entityDefinition
 }
 
 function Update-Entity
 {
     param ($baseUri, $entityName, $entityDefinition)
-
-    if ($entityName -eq $null)
-    {
-        $entityName = $entityDefinition.name
-    }
-    Write-Host "Updating entity $entityName..."
-
+    
     $uri = Get-Uri $baseUri $entityName
     return Put $uri $entityDefinition
 }
@@ -41,9 +32,7 @@ function Update-Entity
 function Delete-Entity
 {
     param ($baseUri, $entityName)
-
-    Write-Host "Deleting entity $entityName..."
-
+    
     $uri = Get-Uri $baseUri $entityName
     return Delete $uri
 }

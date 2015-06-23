@@ -13,6 +13,9 @@ function Create-DataSource
 {
     param ($dataSourceDefinition)
 
+    $name = $entityDefinition.name
+    Write-Host "Creating data source $name..."
+
     return Create-Entity $baseUri $dataSourceDefinition
 }
 
@@ -20,6 +23,7 @@ function Update-DataSource
 {
     param ($dataSourceName, $dataSourceDefinition)
 
+    Write-Host "Updating data source $dataSourceName..."
     return Update-Entity $baseUri $dataSourceName $dataSourceDefinition
 }
 
@@ -27,6 +31,7 @@ function Delete-DataSource
 {
     param ($dataSourceName)
 
+    Write-Host "Deleting data source $dataSourceName..."
     return Delete-Entity $baseUri $dataSourceName
 }
 

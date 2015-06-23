@@ -14,13 +14,17 @@ function Create-Index
 {
     param ($indexDefinition)
 
+    $name = $entityDefinition.name
+    Write-Host "Creating index $name..."
+
     return Create-Entity $baseUri $indexDefinition
 }
 
 function Update-Index
 {
     param ($indexName, $indexDefinition)
-
+    
+    Write-Host "Updating index $indexName..."
     return Update-Entity $baseUri $indexName $indexDefinition
 }
 
@@ -28,6 +32,7 @@ function Delete-Index
 {
     param ($indexName)
 
+    Write-Host "Deleting index $indexName..."
     return Delete-Entity $baseUri $indexName
 }
 

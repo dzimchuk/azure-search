@@ -14,6 +14,9 @@ function Create-Indexer
 {
     param ($indexerDefinition)
 
+    $name = $entityDefinition.name
+    Write-Host "Creating indexer $name..."
+
     return Create-Entity $baseUri $indexerDefinition
 }
 
@@ -21,6 +24,7 @@ function Update-Indexer
 {
     param ($indexerName, $indexerDefinition)
 
+    Write-Host "Updating indexer $indexerName..."
     return Update-Entity $baseUri $indexerName $indexerDefinition
 }
 
@@ -28,6 +32,7 @@ function Delete-Indexer
 {
     param ($indexerName)
 
+    Write-Host "Deleting indexer $indexerName..."
     return Delete-Entity $baseUri $indexerName
 }
 
