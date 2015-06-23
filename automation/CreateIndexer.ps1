@@ -11,11 +11,13 @@
  
  Import-Module (Join-Path (Join-Path $PSScriptRoot "lib") "Credentials.psm1") -DisableNameChecking
  Import-Module (Join-Path (Join-Path $PSScriptRoot "lib") "Indexer.psm1") -DisableNameChecking
+ Import-Module (Join-Path (Join-Path $PSScriptRoot "lib") "Definition.psm1") -DisableNameChecking
+
+ $ErrorActionPreference = "Stop"
 
  Set-Credentials $serviceName $serviceKey
-
- $definitionFile = Join-Path (Join-Path $PSScriptRoot "definitions") ($definitionName + ".json")
- $definition = (Get-Content $definitionFile) -join "`n" | ConvertFrom-Json
+  
+ $definition = Get-Definition $definitionName
 
  $indexer = Get-Indexer $definition.name
  if ($indexer -ne $null)

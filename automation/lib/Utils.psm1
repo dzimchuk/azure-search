@@ -1,5 +1,7 @@
 ﻿Import-Module (Join-Path $PSScriptRoot "Credentials.psm1") -DisableNameChecking
 
+$ErrorActionPreference = "Stop"
+
 $apiVersion = '2015-02-28'
 $contentType = 'application/json'
 

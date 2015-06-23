@@ -12,6 +12,8 @@
  Import-Module (Join-Path (Join-Path $PSScriptRoot "lib") "Credentials.psm1") -DisableNameChecking
  Import-Module (Join-Path (Join-Path $PSScriptRoot "lib") "Indexer.psm1") -DisableNameChecking
 
+ $ErrorActionPreference = "Stop"
+
  Set-Credentials $serviceName $serviceKey
 
  Run-Indexer $indexerName
