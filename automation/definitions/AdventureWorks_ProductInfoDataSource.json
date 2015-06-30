@@ -1,0 +1,7 @@
+{ 
+    "name" : "product-info-datasource",
+    "description" : "A data source for ProductInfo view",
+    "type" : "azuresql",
+    "credentials" : { "connectionString" : "" },
+    "container" : { "name" : "[Production].[vProductInfo]" }
+}

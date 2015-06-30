@@ -1,5 +1,5 @@
 { 
-    "name" : "product-and-description",
-    "dataSourceName" : "product-and-description",
+    "name" : "product-and-description-indexer",
+    "dataSourceName" : "product-and-description-datasource",
     "targetIndexName" : "product-and-description"
 }

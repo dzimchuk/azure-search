@@ -1,0 +1,5 @@
+{ 
+    "name" : "product-info-indexer",
+    "dataSourceName" : "product-info-datasource",
+    "targetIndexName" : "product-info"
+}

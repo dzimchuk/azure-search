@@ -1,5 +1,5 @@
 { 
-    "name" : "product-and-description",
+    "name" : "product-and-description-datasource",
     "description" : "A data source for ProductAndDescription view from AdventureWorks sample database",
     "type" : "azuresql",
     "credentials" : { "connectionString" : "" },
