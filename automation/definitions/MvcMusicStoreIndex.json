@@ -1,0 +1,69 @@
+{
+  "name": "mvc-music-store",
+  "fields": [
+    {
+      "name": "AlbumId",
+      "type": "Edm.String",
+      "key": true,
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "facetable": false,
+      "retrievable": true
+    },
+    {
+      "name": "Genre",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": true,
+      "sortable": false,
+      "facetable": true,
+      "retrievable": true
+    },
+    {
+      "name": "Artist",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": true,
+      "sortable": false,
+      "facetable": true,
+      "retrievable": true,
+      "analyzer": "en.lucene"
+    },
+	{
+      "name": "Title",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "facetable": false,
+      "retrievable": true,
+	  "analyzer": "en.lucene"
+    },
+    {
+      "name": "Price",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "facetable": true,
+      "retrievable": true
+    },
+	{
+      "name": "AlbumArtUrl",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "facetable": false,
+      "retrievable": true
+    }
+  ],
+  "scoringProfiles": [],
+  "suggesters": []
+}
