@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "DemoApp\DemoApp.csproj", "{0EC52F3B-0ED2-4715-9747-80EF32AF5687}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{95CF88BF-008F-41FD-B93F-8330D8F2E1AB}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{B39E5C94-9BAE-4E1F-86B0-639F5C2BDB9B}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\DemoApp-WAWS-dev.json = PublishScripts\Configurations\DemoApp-WAWS-dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EC52F3B-0ED2-4715-9747-80EF32AF5687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC52F3B-0ED2-4715-9747-80EF32AF5687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC52F3B-0ED2-4715-9747-80EF32AF5687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC52F3B-0ED2-4715-9747-80EF32AF5687}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B39E5C94-9BAE-4E1F-86B0-639F5C2BDB9B} = {95CF88BF-008F-41FD-B93F-8330D8F2E1AB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8
+	EndGlobalSection
+EndGlobal

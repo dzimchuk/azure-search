@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0EC52F3B-0ED2-4715-9747-80EF32AF5687}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DemoApp</RootNamespace>
+    <AssemblyName>DemoApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Hyak.Common">
+      <HintPath>..\packages\Hyak.Common.1.0.2\lib\net45\Hyak.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Common">
+      <HintPath>..\packages\Microsoft.Azure.Common.2.0.4\lib\net45\Microsoft.Azure.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Common.NetFramework">
+      <HintPath>..\packages\Microsoft.Azure.Common.2.0.4\lib\net45\Microsoft.Azure.Common.NetFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search">
+      <HintPath>..\packages\Microsoft.Azure.Search.0.11.0-preview\lib\net40\Microsoft.Azure.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling">
+      <HintPath>..\packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Mvc">
+      <HintPath>..\packages\Unity.Mvc.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial">
+      <HintPath>..\packages\Microsoft.Spatial.6.10.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ISearchService.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SearchService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\SearchDemoApp.pubxml" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Icon.png" />
+    <Content Include="images\awc_jersey_female_large.gif" />
+    <Content Include="images\awc_jersey_female_small.gif" />
+    <Content Include="images\awc_jersey_male_large.gif" />
+    <Content Include="images\awc_jersey_male_small.gif" />
+    <Content Include="images\awc_tee_female_large.gif" />
+    <Content Include="images\awc_tee_female_small.gif" />
+    <Content Include="images\awc_tee_male_large.gif" />
+    <Content Include="images\awc_tee_male_small.gif" />
+    <Content Include="images\awc_tee_male_yellow_large.gif" />
+    <Content Include="images\awc_tee_male_yellow_small.gif" />
+    <Content Include="images\bikepump_large.gif" />
+    <Content Include="images\bikepump_small.gif" />
+    <Content Include="images\bike_lock_large.gif" />
+    <Content Include="images\bike_lock_small.gif" />
+    <Content Include="images\bike_shoes_large.gif" />
+    <Content Include="images\bike_shoes_small.gif" />
+    <Content Include="images\bike_shorts_female_large.gif" />
+    <Content Include="images\bike_shorts_female_small.gif" />
+    <Content Include="images\bike_shorts_male_large.gif" />
+    <Content Include="images\bike_shorts_male_small.gif" />
+    <Content Include="images\chain_large.gif" />
+    <Content Include="images\chain_lube_large.gif" />
+    <Content Include="images\chain_lube_small.gif" />
+    <Content Include="images\chain_small.gif" />
+    <Content Include="images\clipless_pedals_large.gif" />
+    <Content Include="images\clipless_pedals_small.gif" />
+    <Content Include="images\co2_4tire_large.gif" />
+    <Content Include="images\co2_4tire_small.gif" />
+    <Content Include="images\double_headlight_large.gif" />
+    <Content Include="images\double_headlight_small.gif" />
+    <Content Include="images\fork_large.gif" />
+    <Content Include="images\fork_small.gif" />
+    <Content Include="images\frame_black_large.gif" />
+    <Content Include="images\frame_black_small.gif" />
+    <Content Include="images\frame_blue_large.gif" />
+    <Content Include="images\frame_blue_small.gif" />
+    <Content Include="images\frame_large.gif" />
+    <Content Include="images\frame_red_large.gif" />
+    <Content Include="images\frame_red_small.gif" />
+    <Content Include="images\frame_silver_large.gif" />
+    <Content Include="images\frame_silver_small.gif" />
+    <Content Include="images\frame_small.gif" />
+    <Content Include="images\frame_yellow_large.gif" />
+    <Content Include="images\frame_yellow_small.gif" />
+    <Content Include="images\handlebar_large.gif" />
+    <Content Include="images\handlebar_small.gif" />
+    <Content Include="images\handpump_large.gif" />
+    <Content Include="images\handpump_small.gif" />
+    <Content Include="images\hotrodbike_black_large.gif" />
+    <Content Include="images\hotrodbike_black_small.gif" />
+    <Content Include="images\hotrodbike_blue_large.gif" />
+    <Content Include="images\hotrodbike_blue_small.gif" />
+    <Content Include="images\hotrodbike_f_large.gif" />
+    <Content Include="images\hotrodbike_f_silver_large.gif" />
+    <Content Include="images\hotrodbike_f_silver_small.gif" />
+    <Content Include="images\hotrodbike_f_small.gif" />
+    <Content Include="images\hotrodbike_large.gif" />
+    <Content Include="images\hotrodbike_red_large.gif" />
+    <Content Include="images\hotrodbike_red_small.gif" />
+    <Content Include="images\hotrodbike_silver_large.gif" />
+    <Content Include="images\hotrodbike_silver_small.gif" />
+    <Content Include="images\hotrodbike_small.gif" />
+    <Content Include="images\hotrodbike_yellow_large.gif" />
+    <Content Include="images\hotrodbike_yellow_small.gif" />
+    <Content Include="images\innertube_large.gif" />
+    <Content Include="images\innertube_small.gif" />
+    <Content Include="images\julianax_r_02_black_large.gif" />
+    <Content Include="images\julianax_r_02_black_small.gif" />
+    <Content Include="images\julianax_r_02_blue_large.gif" />
+    <Content Include="images\julianax_r_02_blue_small.gif" />
+    <Content Include="images\julianax_r_02_f_black_large.gif" />
+    <Content Include="images\julianax_r_02_f_black_small.gif" />
+    <Content Include="images\julianax_r_02_f_blue_large.gif" />
+    <Content Include="images\julianax_r_02_f_blue_small.gif" />
+    <Content Include="images\julianax_r_02_f_gold_large.gif" />
+    <Content Include="images\julianax_r_02_f_gold_small.gif" />
+    <Content Include="images\julianax_r_02_f_green_large.gif" />
+    <Content Include="images\julianax_r_02_f_green_small.gif" />
+    <Content Include="images\julianax_r_02_f_red_large.gif" />
+    <Content Include="images\julianax_r_02_f_red_small.gif" />
+    <Content Include="images\julianax_r_02_gold_large.gif" />
+    <Content Include="images\julianax_r_02_gold_small.gif" />
+    <Content Include="images\julianax_r_02_green_large.gif" />
+    <Content Include="images\julianax_r_02_green_small.gif" />
+    <Content Include="images\julianax_r_02_red_large.gif" />
+    <Content Include="images\julianax_r_02_red_small.gif" />
+    <Content Include="images\julianax_r_02_silver_large.gif" />
+    <Content Include="images\julianax_r_02_silver_small.gif" />
+    <Content Include="images\julianax_r_02_yellow_large.gif" />
+    <Content Include="images\julianax_r_02_yellow_small.gif" />
+    <Content Include="images\mb_shoes_large.gif" />
+    <Content Include="images\mb_shoes_small.gif" />
+    <Content Include="images\mb_tires_large.gif" />
+    <Content Include="images\mb_tires_small.gif" />
+    <Content Include="images\no_image_available_large.gif" />
+    <Content Include="images\no_image_available_small.gif" />
+    <Content Include="images\pedal_large.gif" />
+    <Content Include="images\pedal_small.gif" />
+    <Content Include="images\racer02_black_f_large.gif" />
+    <Content Include="images\racer02_black_f_small.gif" />
+    <Content Include="images\racer02_black_large.gif" />
+    <Content Include="images\racer02_black_small.gif" />
+    <Content Include="images\racer02_blue_f_large.gif" />
+    <Content Include="images\racer02_blue_f_small.gif" />
+    <Content Include="images\racer02_blue_large.gif" />
+    <Content Include="images\racer02_blue_small.gif" />
+    <Content Include="images\racer02_green_f_large.gif" />
+    <Content Include="images\racer02_green_f_small.gif" />
+    <Content Include="images\racer02_green_large.gif" />
+    <Content Include="images\racer02_green_small.gif" />
+    <Content Include="images\racer02_red_large.gif" />
+    <Content Include="images\racer02_red_small.gif" />
+    <Content Include="images\racer02_silver_large.gif" />
+    <Content Include="images\racer02_silver_small.gif" />
+    <Content Include="images\racer02_yellow_f_large.gif" />
+    <Content Include="images\racer02_yellow_f_small.gif" />
+    <Content Include="images\racer_black_large.gif" />
+    <Content Include="images\racer_black_small.gif" />
+    <Content Include="images\racer_blue_large.gif" />
+    <Content Include="images\racer_blue_small.gif" />
+    <Content Include="images\racer_red_large.gif" />
+    <Content Include="images\racer_red_small.gif" />
+    <Content Include="images\racer_silver_large.gif" />
+    <Content Include="images\racer_silver_small.gif" />
+    <Content Include="images\racer_yellow_large.gif" />
+    <Content Include="images\racer_yellow_small.gif" />
+    <Content Include="images\roadster_black_large.gif" />
+    <Content Include="images\roadster_black_small.gif" />
+    <Content Include="images\roadster_blue_large.gif" />
+    <Content Include="images\roadster_blue_small.gif" />
+    <Content Include="images\roadster_green_f_large.gif" />
+    <Content Include="images\roadster_green_f_small.gif" />
+    <Content Include="images\roadster_green_large.gif" />
+    <Content Include="images\roadster_green_small.gif" />
+    <Content Include="images\roadster_large.gif" />
+    <Content Include="images\roadster_purple_f_large.gif" />
+    <Content Include="images\roadster_purple_f_small.gif" />
+    <Content Include="images\roadster_purple_large.gif" />
+    <Content Include="images\roadster_purple_small.gif" />
+    <Content Include="images\roadster_red_f_large.gif" />
+    <Content Include="images\roadster_red_f_small.gif" />
+    <Content Include="images\roadster_red_large.gif" />
+    <Content Include="images\roadster_red_small.gif" />
+    <Content Include="images\roadster_silver_large.gif" />
+    <Content Include="images\roadster_silver_small.gif" />
+    <Content Include="images\roadster_small.gif" />
+    <Content Include="images\roadster_yellow_f_large.gif" />
+    <Content Include="images\roadster_yellow_f_small.gif" />
+    <Content Include="images\roadster_yellow_large.gif" />
+    <Content Include="images\roadster_yellow_small.gif" />
+    <Content Include="images\saddle_large.gif" />
+    <Content Include="images\saddle_small.gif" />
+    <Content Include="images\shorts_female_large.gif" />
+    <Content Include="images\shorts_female_small.gif" />
+    <Content Include="images\shorts_male_large.gif" />
+    <Content Include="images\shorts_male_small.gif" />
+    <Content Include="images\silver_chain_large.gif" />
+    <Content Include="images\silver_chain_small.gif" />
+    <Content Include="images\silver_pedal_large.gif" />
+    <Content Include="images\silver_pedal_small.gif" />
+    <Content Include="images\silver_sprocket_large.gif" />
+    <Content Include="images\silver_sprocket_small.gif" />
+    <Content Include="images\single_headlight_large.gif" />
+    <Content Include="images\single_headlight_small.gif" />
+    <Content Include="images\sprocket_large.gif" />
+    <Content Include="images\sprocket_small.gif" />
+    <Content Include="images\street_tires_large.gif" />
+    <Content Include="images\street_tires_small.gif" />
+    <Content Include="images\superlight_black_f_large.gif" />
+    <Content Include="images\superlight_black_f_small.gif" />
+    <Content Include="images\superlight_black_large.gif" />
+    <Content Include="images\superlight_black_small.gif" />
+    <Content Include="images\superlight_blue_f_large.gif" />
+    <Content Include="images\superlight_blue_f_small.gif" />
+    <Content Include="images\superlight_blue_large.gif" />
+    <Content Include="images\superlight_blue_small.gif" />
+    <Content Include="images\superlight_metalicgreen_f_large.gif" />
+    <Content Include="images\superlight_metalicgreen_f_small.gif" />
+    <Content Include="images\superlight_metalicgreen_large.gif" />
+    <Content Include="images\superlight_metalicgreen_small.gif" />
+    <Content Include="images\superlight_red_f_large.gif" />
+    <Content Include="images\superlight_red_f_small.gif" />
+    <Content Include="images\superlight_red_large.gif" />
+    <Content Include="images\superlight_red_small.gif" />
+    <Content Include="images\superlight_silver_f_large.gif" />
+    <Content Include="images\superlight_silver_f_small.gif" />
+    <Content Include="images\superlight_silver_large.gif" />
+    <Content Include="images\superlight_silver_small.gif" />
+    <Content Include="images\superlight_yellow_f_large.gif" />
+    <Content Include="images\superlight_yellow_f_small.gif" />
+    <Content Include="images\superlight_yellow_large.gif" />
+    <Content Include="images\superlight_yellow_small.gif" />
+    <Content Include="images\tail_lights_large.gif" />
+    <Content Include="images\tail_lights_small.gif" />
+    <Content Include="images\tirepatch_kit_large.gif" />
+    <Content Include="images\tirepatch_kit_small.gif" />
+    <Content Include="images\water_bottle_cage_large.gif" />
+    <Content Include="images\water_bottle_cage_small.gif" />
+    <Content Include="images\water_bottle_large.gif" />
+    <Content Include="images\water_bottle_small.gif" />
+    <Content Include="images\wheel_large.gif" />
+    <Content Include="images\wheel_small.gif" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\SearchResults.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49743</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49743/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

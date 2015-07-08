@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Microsoft.Azure.Search.Models.SearchResult<DemoApp.Models.ProductInfo>>
+
+@if (Model != null)
+{
+    <div>
+        <p>Found @Model.Count() products in the catalog</p>
+
+        @foreach (var product in Model)
+        {
+            <div>
+                <img class="pull-left img-thumbnail" src="~/images/@product.Document.ThumbnailPhotoFileName" alt="@product.Document.Name"/>
+                <div>
+                    <h3>@product.Document.Name</h3>
+                    <p>price: @product.Document.ListPrice, color: @product.Document.Color</p>
+                    @Description(product)
+                </div>
+            </div>
+        }
+
+    </div>
+}
+
+@helper Description(Microsoft.Azure.Search.Models.SearchResult<DemoApp.Models.ProductInfo> product)
+{
+    var description = product.Document.Description;
+    if (product.Highlights != null && product.Highlights.ContainsKey("Description"))
+    {
+        description = product.Highlights["Description"].First();
+    }
+    
+    <p>@Html.Raw(description)</p>
+}
