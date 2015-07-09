@@ -6,26 +6,26 @@
 
 @if (Model != null)
 {
+    if (Model.Count > 0)
+    {
+        @RenderSearchResults()
+    }
+    else
+    {
+        <h3>No products found</h3>
+    }
+}
+
+@helper RenderSearchResults()
+{
     <div class="row">
         <div class="col-md-4">
             <h3>Facets</h3>
             @Html.Partial("Facets", Model.Facets)
         </div>
         <div class="col-md-8">
-            @ResultCount()
+            <h3>Found approximately @Model.Count products</h3>
             @Html.Partial("SearchResults", Model)
         </div>
     </div>
-}
-
-@helper ResultCount()
-{
-    if (Model.Count > 0)
-    {
-        <h3>Found approximately @Model.Count products</h3>
-    }
-    else
-    {
-        <h3>No products found</h3>
-    }
 }
