@@ -1,0 +1,33 @@
+﻿@model Microsoft.Azure.Search.Models.FacetResults
+    
+Colors:
+<ul>
+    @foreach (var colorFacet in Model["Color"])
+    {
+        <li><a href="#" onclick="document.getElementById('color').value = '@colorFacet.Value'; document.forms[0].submit(); return false;">@colorFacet.Value</a> (@colorFacet.Count)</li>
+    }
+</ul>
+Categories:
+<ul>
+    @foreach (var categoryFacet in Model["Category"])
+    {
+        <li><a href="#" onclick="document.getElementById('category').value = '@categoryFacet.Value'; document.forms[0].submit(); return false;">@categoryFacet.Value</a> (@categoryFacet.Count)</li>
+    }
+</ul>
+Subcategories:
+<ul>
+    @foreach (var subcategoryFacet in Model["Subcategory"])
+    {
+        <li><a href="#" onclick="document.getElementById('subcategory').value='@subcategoryFacet.Value'; document.forms[0].submit(); return false;">@subcategoryFacet.Value</a> (@subcategoryFacet.Count)</li>
+    }
+</ul>
+Prices:
+<ul>
+    @foreach (var priceFacet in Model["ListPrice"])
+    {
+        if (priceFacet.Count > 0)
+        {
+            <li><a href="#" onclick="document.getElementById('priceFrom').value=@(priceFacet.From ?? 0); document.getElementById('priceTo').value=@(priceFacet.To ?? 0); document.forms[0].submit(); return false;">@(priceFacet.From ?? 0) - @(priceFacet.To ?? "more")</a> (@priceFacet.Count)</li>
+        }
+    }
+</ul>

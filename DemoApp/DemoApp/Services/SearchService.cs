@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using DemoApp.Controllers;
 using DemoApp.Models;
@@ -22,7 +24,7 @@ namespace DemoApp.Services
                 new SearchCredentials(ConfigurationManager.AppSettings["search:key"]));
         }
 
-        public async Task<IList<SearchResult<ProductInfo>>> SearchAsync(string searchText)
+        public async Task<DocumentSearchResponse<ProductInfo>> SearchAsync(string searchText, string color, string category, string subcategory, double? priceFrom, double? priceTo, string sort)
         {
             if (string.IsNullOrWhiteSpace(searchText))
                 searchText = "*";
@@ -32,11 +34,65 @@ namespace DemoApp.Services
                 SearchMode = SearchMode.All,
                 HighlightFields = new List<string> { "Name", "Description" },
                 HighlightPreTag = "<b>",
-                HighlightPostTag = "</b>"
+                HighlightPostTag = "</b>",
+                IncludeTotalResultCount = true,
+                Top = 10,
+                Facets = new List<string> { "Color", "ListPrice,values:10|25|100|500|1000|2500", "Subcategory", "Category" }
             };
 
+            var filter = BuildFilter(color, category, subcategory, priceFrom, priceTo);
+            if (!string.IsNullOrEmpty(filter))
+                parameters.Filter = filter;
+
             var result = await indexClient.Documents.SearchAsync<ProductInfo>(searchText, parameters);
-            return result.StatusCode != HttpStatusCode.OK ? null : result.Results;
+            return result.StatusCode != HttpStatusCode.OK ? null : result;
+        }
+
+        private static string BuildFilter(string color, string category, string subcategory, double? priceFrom, double? priceTo)
+        {
+            var filter = new StringBuilder();
+
+            if (!string.IsNullOrWhiteSpace(color))
+            {
+                filter.AppendFormat("Color eq '{0}'", EscapeODataString(color));
+            }
+
+            if (!string.IsNullOrWhiteSpace(category))
+            {
+                AppendAnd(filter);
+                filter.AppendFormat("Category eq '{0}'", EscapeODataString(category));
+            }
+
+            if (!string.IsNullOrWhiteSpace(subcategory))
+            {
+                AppendAnd(filter);
+                filter.AppendFormat("Subcategory eq '{0}'", EscapeODataString(subcategory));
+            }
+
+            if (priceFrom.HasValue)
+            {
+                AppendAnd(filter);
+                filter.AppendFormat(CultureInfo.InvariantCulture, "ListPrice ge {0}", priceFrom);
+            }
+
+            if (priceTo.HasValue && priceTo > 0)
+            {
+                AppendAnd(filter);
+                filter.AppendFormat(CultureInfo.InvariantCulture, "ListPrice le {0}", priceTo);
+            }
+
+            return filter.ToString();
+        }
+
+        private static void AppendAnd(StringBuilder filter)
+        {
+            if (filter.Length > 0)
+                filter.Append(" and ");
+        }
+
+        private static string EscapeODataString(string s)
+        {
+            return Uri.EscapeDataString(s).Replace("\'", "\'\'");
         }
     }
 }

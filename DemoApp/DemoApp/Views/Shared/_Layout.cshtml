@@ -27,6 +27,13 @@
                                value="@ViewBag.SearchText" placeholder="Enter search term..." autocomplete="off">
                     </div>
                     <button type="submit" class="btn btn-default">Search</button>
+
+                    <input type="hidden" name="color" id="color" value="@ViewBag.Color" />
+                    <input type="hidden" name="category" id="category" value="@ViewBag.Category" />
+                    <input type="hidden" name="subcategory" id="subcategory" value="@ViewBag.Subcategory" />
+                    <input type="hidden" name="priceFrom" id="priceFrom" value="@ViewBag.PriceFrom" />
+                    <input type="hidden" name="priceTo" id="priceTo" value="@ViewBag.PriceTo" />
+                    <input type="hidden" name="sort" id="sort" value="@ViewBag.Sort" />
                 }
             </div>
         </div>
@@ -35,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Azure Search Demo</p>
         </footer>
     </div>
 

@@ -19,11 +19,17 @@ namespace DemoApp.Controllers
             return View();
         }
 
-        public async Task<ActionResult> Search(string searchText)
+        public async Task<ActionResult> Search(string searchText, string color, string category, string subcategory, double? priceFrom, double? priceTo, string sort)
         {
-            var result = await searchService.SearchAsync(searchText);
-            ViewBag.searchText = searchText ?? string.Empty;
-            
+            var result = await searchService.SearchAsync(searchText, color, category, subcategory, priceFrom, priceTo, sort);
+            ViewBag.SearchText = searchText;
+            ViewBag.Color = color;
+            ViewBag.Category = category;
+            ViewBag.Subcategory = subcategory;
+            ViewBag.PriceFrom = priceFrom;
+            ViewBag.PriceTo = priceTo;
+            ViewBag.Sort = sort;
+
             return View("Index", result);
         }
     }

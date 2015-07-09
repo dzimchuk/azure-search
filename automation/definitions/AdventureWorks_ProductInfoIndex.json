@@ -44,7 +44,7 @@
     },
 	{
       "name": "ListPrice",
-      "type": "Edm.String",
+      "type": "Edm.Double",
       "key": false,
       "searchable": false,
       "filterable": true,
