@@ -1,7 +1,7 @@
 ﻿function UpdateSortOption(option) {
-    var displayOption = option.text();
+    var displayOption = option.text() + "<span class=\"caret\"></span>";
     var sortOption = option.data("sort");
-    $("#sortButton").text(displayOption);
+    $("#sortButton").html(displayOption);
     $("#sort").val(sortOption);
 }
 

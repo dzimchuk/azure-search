@@ -428,6 +428,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\SearchResults.cshtml" />
     <Content Include="Views\Shared\Facets.cshtml" />
+    <Content Include="Views\Shared\NavbarMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
