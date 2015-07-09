@@ -38,7 +38,7 @@
       "key": false,
       "searchable": false,
       "filterable": true,
-      "sortable": false,
+      "sortable": true,
       "facetable": true,
       "retrievable": true
     },
@@ -48,7 +48,7 @@
       "key": false,
       "searchable": false,
       "filterable": true,
-      "sortable": false,
+      "sortable": true,
       "facetable": true,
       "retrievable": true
     },

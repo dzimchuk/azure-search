@@ -19,6 +19,18 @@
                 @Html.ActionLink("Azure Search Demo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="sortButton" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort <span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="sortOptions">
+                            <li><a href="#" tabindex="-1" data-sort="">sort by relevance</a></li>
+                            <li><a href="#" tabindex="-1" data-sort="ListPrice">sort by list price</a></li>
+                            <li><a href="#" tabindex="-1" data-sort="Color">sort by color</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+
                 @using (Html.BeginForm("search", "home", FormMethod.Get, new { @class = "navbar-form navbar-right", role = "search" }))
                 {
                     <div class="form-group">
@@ -48,6 +60,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/sitescripts")
     @RenderSection("scripts", required: false)
 </body>
 </html>

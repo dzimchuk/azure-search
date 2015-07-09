@@ -44,6 +44,9 @@ namespace DemoApp.Services
             if (!string.IsNullOrEmpty(filter))
                 parameters.Filter = filter;
 
+            if (!string.IsNullOrWhiteSpace(sort))
+                parameters.OrderBy = new List<string> { sort };
+
             var result = await indexClient.Documents.SearchAsync<ProductInfo>(searchText, parameters);
             return result.StatusCode != HttpStatusCode.OK ? null : result;
         }
