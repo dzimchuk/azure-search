@@ -51,6 +51,19 @@ namespace DemoApp.Services
             return result.StatusCode != HttpStatusCode.OK ? null : result;
         }
 
+        public async Task<IList<SuggestResult<ProductInfo>>> SuggestAsync(string searchText)
+        {
+            var parameters = new SuggestParameters
+            {
+                UseFuzzyMatching = true,
+//                HighlightPreTag = "<b>",
+//                HighlightPostTag = "</b>"
+            };
+
+            var result = await indexClient.Documents.SuggestAsync<ProductInfo>(searchText, "product-suggester", parameters);
+            return result.StatusCode != HttpStatusCode.OK ? null : result.Results;
+        }
+
         private static string BuildFilter(string color, string category, string subcategory, double? priceFrom, double? priceTo)
         {
             var filter = new StringBuilder();

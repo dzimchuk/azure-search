@@ -19,8 +19,7 @@
       "filterable": false,
       "sortable": false,
       "facetable": false,
-      "retrievable": true,
-      "analyzer": "en.lucene"
+      "retrievable": true
     },
 	{
       "name": "ProductNumber",
@@ -60,8 +59,7 @@
       "filterable": false,
       "sortable": false,
       "facetable": false,
-      "retrievable": true,
-      "analyzer": "en.lucene"
+      "retrievable": true
     },
     {
       "name": "Description",
@@ -116,5 +114,11 @@
     }
   ],
   "scoringProfiles": [],
-  "suggesters": []
+  "suggesters": [
+    {
+      "name": "product-suggester",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": ["Name", "Category", "Subcategory"]
+    }
+  ]
 }

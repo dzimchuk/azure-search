@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using DemoApp.Models;
+using Microsoft.Azure.Search.Models;
 
 namespace DemoApp.Controllers
 {
@@ -19,6 +22,7 @@ namespace DemoApp.Controllers
             return View();
         }
 
+        [HttpGet]
         public async Task<ActionResult> Search(string searchText, string color, string category, string subcategory, double? priceFrom, double? priceTo, string sort)
         {
             var result = await searchService.SearchAsync(searchText, color, category, subcategory, priceFrom, priceTo, sort);
@@ -31,6 +35,24 @@ namespace DemoApp.Controllers
             ViewBag.Sort = sort;
 
             return View("Index", result);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Suggest(string searchText)
+        {
+            IList<SuggestResult<ProductInfo>> result = new List<SuggestResult<ProductInfo>>();
+
+            if (!string.IsNullOrWhiteSpace(searchText) && searchText.Length >= 3)
+            {
+                result = await searchService.SuggestAsync(searchText);
+            }
+
+            return new JsonResult { JsonRequestBehavior = JsonRequestBehavior.AllowGet, Data = result.Select(r => new Suggestion { value = r.Text }) };
+        }
+
+        private class Suggestion
+        {
+            public string value { get; set; }
         }
     }
 }
