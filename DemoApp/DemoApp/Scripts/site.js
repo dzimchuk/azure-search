@@ -22,30 +22,31 @@ function setupSorting() {
     }
 }
 
-function typeahead() {
-    var azureSearch = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
-        remote: {
-            url: 'home/suggest?searchText=%QUERY',
-            wildcard: '%QUERY'
+function autocomplete() {
+    $("#searchText").autocomplete({
+        minLength: 3,
+        autoFocus: true,
+        source: function(request, response) {
+            $.getJSON("/home/suggest", {
+                searchText: request.term
+            }).done(function(data) {
+                var array = data.error ? [] : $.map(data, function (item) {
+                    return {
+                        label: item.Text,
+                        value: item.Text.replace(/<.+?>/ig, "")
+                    };
+                });
+                response(array);
+            });
         }
-    });
-
-
-    $('#searchText').typeahead({
-        hint: true,
-        highlight: true,
-        minLength: 3
-    },
-    {
-        name: 'products',
-        display: 'value',
-        source: azureSearch
-    });
+    }).autocomplete("instance")._renderItem = function(ul, item) {
+        return $("<li>")
+        .append("<span>" + item.label + "</span>")
+        .appendTo(ul);
+    };
 }
 
 $(document).ready(function () {
     setupSorting();
-    typeahead();
+    autocomplete();
 })

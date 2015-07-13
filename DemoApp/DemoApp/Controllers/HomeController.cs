@@ -47,12 +47,7 @@ namespace DemoApp.Controllers
                 result = await searchService.SuggestAsync(searchText);
             }
 
-            return new JsonResult { JsonRequestBehavior = JsonRequestBehavior.AllowGet, Data = result.Select(r => new Suggestion { value = r.Text }) };
-        }
-
-        private class Suggestion
-        {
-            public string value { get; set; }
+            return new JsonResult { JsonRequestBehavior = JsonRequestBehavior.AllowGet, Data = result };
         }
     }
 }

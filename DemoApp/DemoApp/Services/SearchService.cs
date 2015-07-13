@@ -56,8 +56,8 @@ namespace DemoApp.Services
             var parameters = new SuggestParameters
             {
                 UseFuzzyMatching = true,
-//                HighlightPreTag = "<b>",
-//                HighlightPostTag = "</b>"
+                HighlightPreTag = "<b>",
+                HighlightPostTag = "</b>"
             };
 
             var result = await indexClient.Documents.SuggestAsync<ProductInfo>(searchText, "product-suggester", parameters);

@@ -25,9 +25,10 @@ namespace DemoApp
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/jquery-ui.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/sitescripts").Include("~/Scripts/Site.js", "~/Scripts/typeahead.bundle.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/sitescripts").Include("~/Scripts/Site.js", "~/Scripts/jquery-ui.js"));
         }
     }
 }
