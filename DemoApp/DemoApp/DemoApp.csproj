@@ -166,12 +166,18 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ISearchService.cs" />
+    <Compile Include="ISearchService.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IProductMapper.cs" />
+    <Compile Include="Mappers\ProductMapper.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DocumentService.cs" />
+    <Compile Include="IDocumentService.cs" />
     <Compile Include="Services\SearchService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -431,6 +437,9 @@
     <Content Include="Views\Shared\SearchResults.cshtml" />
     <Content Include="Views\Shared\Facets.cshtml" />
     <Content Include="Views\Shared\NavbarMenu.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Complete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

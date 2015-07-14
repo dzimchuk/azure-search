@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Globalization;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using DemoApp.Controllers;
 using DemoApp.Models;
 using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
@@ -16,12 +14,9 @@ namespace DemoApp.Services
     {
         private readonly ISearchIndexClient indexClient;
 
-        public SearchService()
+        public SearchService(ISearchIndexClient indexClient)
         {
-            indexClient = new SearchIndexClient(
-                ConfigurationManager.AppSettings["search:service"],
-                ConfigurationManager.AppSettings["search:index"],
-                new SearchCredentials(ConfigurationManager.AppSettings["search:key"]));
+            this.indexClient = indexClient;
         }
 
         public async Task<DocumentSearchResponse<ProductInfo>> SearchAsync(string searchText, string color, string category, string subcategory, double? priceFrom, double? priceTo, string sort)

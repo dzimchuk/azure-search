@@ -1,6 +1,9 @@
 using System;
+using System.Configuration;
 using DemoApp.Controllers;
+using DemoApp.Mappers;
 using DemoApp.Services;
+using Microsoft.Azure.Search;
 using Microsoft.Practices.Unity;
 
 namespace DemoApp.App_Start
@@ -34,6 +37,12 @@ namespace DemoApp.App_Start
         private static void RegisterTypes(IUnityContainer container)
         {
             container.RegisterType<ISearchService, SearchService>();
+            container.RegisterType<IDocumentService, DocumentService>();
+            container.RegisterType<IProductMapper, ProductMapper>();
+            container.RegisterType<ISearchIndexClient, SearchIndexClient>(new InjectionConstructor(
+                ConfigurationManager.AppSettings["search:service"],
+                ConfigurationManager.AppSettings["search:index"],
+                new SearchCredentials(ConfigurationManager.AppSettings["search:key"])));
         }
     }
 }

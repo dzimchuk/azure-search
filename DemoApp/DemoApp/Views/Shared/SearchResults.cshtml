@@ -7,7 +7,7 @@
         <div>
             <img class="pull-left img-thumbnail product-thumbnail" src="~/images/@product.Document.ThumbnailPhotoFileName" alt="@product.Document.Name" />
             <div>
-                <h4>@product.Document.Name</h4>
+                <h4>@Html.ActionLink(product.Document.Name, "Details", "Product", new { id = product.Document.ProductId }, new {})</h4>
                 <p>price: @product.Document.ListPrice, color: @product.Document.Color</p>
             </div>
             @Description(product)

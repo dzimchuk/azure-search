@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using DemoApp.Models;
 using Microsoft.Azure.Search.Models;
 
-namespace DemoApp.Controllers
+namespace DemoApp
 {
     public interface ISearchService
     {
