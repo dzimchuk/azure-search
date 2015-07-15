@@ -2,7 +2,7 @@
 
 $ErrorActionPreference = "Stop"
 
-$apiVersion = '2015-02-28'
+$apiVersion = '2015-02-28-Preview'
 $contentType = 'application/json; charset=utf-8'
 
 function Append-ServiceVersion

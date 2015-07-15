@@ -1,0 +1,49 @@
+{
+  "name": "alice-ru",
+  "fields": [
+    {
+      "name": "Id",
+      "type": "Edm.String",
+      "key": true,
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "facetable": false,
+      "retrievable": true
+    },
+    {
+      "name": "Standard",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "facetable": false,
+      "retrievable": false
+    },
+	{
+      "name": "Lucene",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "facetable": false,
+      "retrievable": false,
+      "analyzer": "ru.lucene"
+    },
+	{
+      "name": "Microsoft",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "facetable": false,
+      "retrievable": false,
+      "analyzer": "ru.microsoft"
+    }
+  ],
+  "scoringProfiles": [],
+  "suggesters": []
+}
