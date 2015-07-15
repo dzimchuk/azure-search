@@ -3,7 +3,7 @@
 $ErrorActionPreference = "Stop"
 
 $apiVersion = '2015-02-28'
-$contentType = 'application/json'
+$contentType = 'application/json; charset=utf-8'
 
 function Append-ServiceVersion
 {
@@ -14,26 +14,6 @@ function Append-ServiceVersion
 function Get-DefaultHeaders
 {
     return @{ 'api-key' = $Global:serviceKey }
-}
-
-function Escape-Unicode
-{
-    param ([string]$text)
-
-    $builder = New-Object System.Text.StringBuilder
-    foreach($c in $text.ToCharArray())
-    {
-        if ($c -gt 127)
-        {
-            $builder.AppendFormat("\u{0}", ([int]$c).ToString("x4")) | Out-Null
-        }
-        else
-        {
-            $builder.Append($c) | Out-Null 
-        }
-    }
-
-    return $builder.ToString()
 }
 
 function Get
@@ -76,8 +56,8 @@ function Post
     if ($body -ne $null)
     {
         $json = ConvertTo-Json $body -Depth 100
-        $json = Escape-Unicode $json
-        $result = Invoke-RestMethod -Uri $finalUri -Method Post -Headers $headers -Body $json -ContentType $contentType
+        $postData = [System.Text.Encoding]::UTF8.GetBytes($json)
+        $result = Invoke-RestMethod -Uri $finalUri -Method Post -Headers $headers -Body $postData -ContentType $contentType
     }
     else
     {
@@ -95,8 +75,8 @@ function Put
     $headers = Get-DefaultHeaders
 
     $json = ConvertTo-Json $body -Depth 100
-    $json = Escape-Unicode $json
-    $result = Invoke-RestMethod -Uri $finalUri -Method Put -Headers $headers -Body $json -ContentType $contentType
+    $postData = [System.Text.Encoding]::UTF8.GetBytes($json)
+    $result = Invoke-RestMethod -Uri $finalUri -Method Put -Headers $headers -Body $postData -ContentType $contentType
 
     return $result
 }
