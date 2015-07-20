@@ -9,10 +9,12 @@ namespace DemoApp.Controllers
     public class ProductController : Controller
     {
         private readonly IDocumentService documentService;
+        private readonly IProductMapper productMapper;
 
-        public ProductController(IDocumentService documentService)
+        public ProductController(IDocumentService documentService, IProductMapper productMapper)
         {
             this.documentService = documentService;
+            this.productMapper = productMapper;
         }
 
         public async Task<ActionResult> Details(int id)
@@ -21,7 +23,7 @@ namespace DemoApp.Controllers
             if (document == null)
                 return HttpNotFound();
 
-            return View(document);
+            return View(productMapper.MapFrom(document));
         }
 
         public async Task<ActionResult> Edit(int id)
@@ -30,7 +32,7 @@ namespace DemoApp.Controllers
             if (document == null)
                 return HttpNotFound();
 
-            return View(document);
+            return View(productMapper.MapFrom(document));
         }
 
         [HttpPost]
@@ -39,7 +41,7 @@ namespace DemoApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                await documentService.UpdateAsync(product);
+                await documentService.UpdateAsync(productMapper.MapFrom(product));
                 return View("Complete", product);
             }
 

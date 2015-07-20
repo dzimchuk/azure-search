@@ -6,7 +6,7 @@ namespace DemoApp
 {
     public interface IDocumentService
     {
-        Task<Product> FindAsync(int productId);
-        Task UpdateAsync(Product product);
+        Task<ProductInfo> FindAsync(int productId);
+        Task UpdateAsync(ProductInfo document);
     }
 }
