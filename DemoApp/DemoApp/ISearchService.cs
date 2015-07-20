@@ -8,7 +8,7 @@ namespace DemoApp
 {
     public interface ISearchService
     {
-        Task<DocumentSearchResponse<ProductInfo>> SearchAsync(string searchText, string color, string category, string subcategory, double? priceFrom, double? priceTo, string sort);
+        Task<DocumentSearchResponse<ProductInfo>> SearchAsync(string searchText, string color, string category, string subcategory, double? priceFrom, double? priceTo, string sort, int page);
         Task<IList<SuggestResult<ProductInfo>>> SuggestAsync(string searchText);
     }
 }

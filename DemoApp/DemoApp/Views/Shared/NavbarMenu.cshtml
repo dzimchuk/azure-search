@@ -10,7 +10,7 @@
     </li>
 </ul>
 
-@using (Html.BeginForm("search", "home", FormMethod.Get, new { @class = "navbar-form navbar-right", role = "search" }))
+@using (Html.BeginForm("search", "home", FormMethod.Get, new { @class = "navbar-form navbar-right", role = "search", id = "search-form" }))
 {
     <div class="form-group">
         <label class="sr-only" for="searchText">Email address</label>
@@ -25,4 +25,5 @@
     <input type="hidden" name="priceFrom" id="priceFrom" value="@ViewBag.PriceFrom" />
     <input type="hidden" name="priceTo" id="priceTo" value="@ViewBag.PriceTo" />
     <input type="hidden" name="sort" id="sort" value="@ViewBag.Sort" />
+    <input type="hidden" name="page" id="page" value="@ViewBag.Page" />
 }

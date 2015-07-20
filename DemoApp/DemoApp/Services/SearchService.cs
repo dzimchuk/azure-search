@@ -19,7 +19,7 @@ namespace DemoApp.Services
             this.indexClient = indexClient;
         }
 
-        public async Task<DocumentSearchResponse<ProductInfo>> SearchAsync(string searchText, string color, string category, string subcategory, double? priceFrom, double? priceTo, string sort)
+        public async Task<DocumentSearchResponse<ProductInfo>> SearchAsync(string searchText, string color, string category, string subcategory, double? priceFrom, double? priceTo, string sort, int page)
         {
             if (string.IsNullOrWhiteSpace(searchText))
                 searchText = "*";
@@ -31,7 +31,8 @@ namespace DemoApp.Services
                 HighlightPreTag = "<b>",
                 HighlightPostTag = "</b>",
                 IncludeTotalResultCount = true,
-                Top = 10,
+                Top = Constants.PageSize,
+                Skip = (page - 1) * Constants.PageSize,
                 Facets = new List<string> { "Color", "ListPrice,values:10|25|100|500|1000|2500", "Subcategory", "Category" }
             };
 

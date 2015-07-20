@@ -46,7 +46,16 @@ function autocomplete() {
     };
 }
 
+function initializePager() {
+    $(".pagination a").on("click", function() {
+        $("#page").val($(this).data("page"));
+        $("#search-form").submit();
+        return false;
+    });
+}
+
 $(document).ready(function () {
     setupSorting();
     autocomplete();
+    initializePager();
 })

@@ -23,9 +23,9 @@ namespace DemoApp.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Search(string searchText, string color, string category, string subcategory, double? priceFrom, double? priceTo, string sort)
+        public async Task<ActionResult> Search(string searchText, string color, string category, string subcategory, double? priceFrom, double? priceTo, string sort, int page = 1)
         {
-            var result = await searchService.SearchAsync(searchText, color, category, subcategory, priceFrom, priceTo, sort);
+            var result = await searchService.SearchAsync(searchText, color, category, subcategory, priceFrom, priceTo, sort, page);
             ViewBag.SearchText = searchText;
             ViewBag.Color = color;
             ViewBag.Category = category;
@@ -33,6 +33,7 @@ namespace DemoApp.Controllers
             ViewBag.PriceFrom = priceFrom;
             ViewBag.PriceTo = priceTo;
             ViewBag.Sort = sort;
+            ViewBag.Page = page;
 
             return View("Index", result);
         }

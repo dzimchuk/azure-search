@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Microsoft.Azure.Search.Models.SearchResult<DemoApp.Models.ProductInfo>>
+﻿@model Microsoft.Azure.Search.Models.DocumentSearchResponse<DemoApp.Models.ProductInfo>
 
 <div>
 
@@ -14,6 +14,8 @@
         </div>
     }
 
+    @Pager()
+
 </div>
 
 
@@ -28,4 +30,48 @@
     <div class="description">
         <p>@Html.Raw(description)</p>
     </div>
+}
+
+@helper Pager()
+{
+    <nav>
+        <ul class="pagination">
+            <li class="@PreviousPageClass()"><a href="#" aria-label="Previous" data-page="1"><span aria-hidden="true">&laquo;</span></a></li>
+            @for (var i = 1; i <= Math.Ceiling((double)Model.Count / Constants.PageSize); i++)
+            {
+                <li class="@PageClass(i)"><a href="#" data-page="@i">@i</a></li>
+            }
+            <li class="@NextPageClass()"><a href="#" aria-label="Next" data-page="@TotalPages()"><span aria-hidden="true">&raquo;</span></a></li>
+        </ul>
+    </nav>
+}
+
+@helper PreviousPageClass()
+{
+    if (ViewBag.Page == 1)
+    {
+        @:disabled
+    }
+}
+
+@helper NextPageClass()
+{
+    if (ViewBag.Page * Constants.PageSize >= Model.Count)
+    {
+        @:disabled
+    }
+}
+
+@helper PageClass(int index)
+{
+    if (index == ViewBag.Page)
+    {
+        @:active
+    }
+}
+
+@helper TotalPages()
+{
+    var pages = Model.Count / Constants.PageSize;
+    @pages
 }
