@@ -41,7 +41,7 @@
             {
                 <li class="@PageClass(i)"><a href="#" data-page="@i">@i</a></li>
             }
-            <li class="@NextPageClass()"><a href="#" aria-label="Next" data-page="@TotalPages()"><span aria-hidden="true">&raquo;</span></a></li>
+            <li class="@NextPageClass()"><a href="#" aria-label="Next" data-page="@(Math.Ceiling((double)Model.Count / Constants.PageSize))"><span aria-hidden="true">&raquo;</span></a></li>
         </ul>
     </nav>
 }
@@ -68,10 +68,4 @@
     {
         @:active
     }
-}
-
-@helper TotalPages()
-{
-    var pages = Model.Count / Constants.PageSize;
-    @pages
 }

@@ -54,8 +54,31 @@ function initializePager() {
     });
 }
 
+function initializeFacets(selector, input) {
+    $(selector).on("click", function () {
+        $(input).val($(this).data("value"));
+        $("#search-form").submit();
+        return false;
+    });
+}
+
+function initializePriceFacets(selector, inputFrom, inputTo) {
+    $(selector).on("click", function () {
+        $(inputFrom).val($(this).data("valuefrom"));
+        $(inputTo).val($(this).data("valueto"));
+        $("#search-form").submit();
+        return false;
+    });
+}
+
 $(document).ready(function () {
     setupSorting();
     autocomplete();
+
     initializePager();
+
+    initializeFacets("#colors a", "#color");
+    initializeFacets("#categories a", "#category");
+    initializeFacets("#subcategories a", "#subcategory");
+    initializePriceFacets("#prices a", "#priceFrom", "#priceTo");
 })
